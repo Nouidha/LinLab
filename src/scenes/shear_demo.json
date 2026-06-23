@@ -1,0 +1,36 @@
+{
+  "objects": [
+    { "id": "cube-1", "type": "cube",  "color": "#7F77DD", "wireframe": true  },
+    { "id": "cube-2", "type": "cube",  "color": "#5DCAA5", "wireframe": false }
+  ],
+  "nodes": [
+    {
+      "id": "obj-cube-1", "type": "objectNode",
+      "position": { "x": 50, "y": 50 },
+      "data": { "objectId": "cube-1", "label": "Cube (wire)", "color": "#7F77DD" }
+    },
+    {
+      "id": "obj-cube-2", "type": "objectNode",
+      "position": { "x": 50, "y": 220 },
+      "data": { "objectId": "cube-2", "label": "Cube (sheared)", "color": "#5DCAA5" }
+    },
+    {
+      "id": "shear-1", "type": "transformNode",
+      "position": { "x": 290, "y": 200 },
+      "data": {
+        "transformType": "shear", "label": "Shear",
+        "params": { "xy": 0, "xz": 0, "yx": 0.6, "yz": 0, "zx": 0, "zy": 0 }
+      }
+    },
+    {
+      "id": "wave-1", "type": "waveformNode",
+      "position": { "x": 50, "y": 370 },
+      "data": { "params": { "type": "sin", "amplitude": 1.2, "frequency": 0.3, "phase": 0 } }
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "obj-cube-2", "sourceHandle": "out",  "target": "shear-1", "targetHandle": "in" },
+    { "id": "e2", "source": "wave-1",     "sourceHandle": "out",  "target": "shear-1", "targetHandle": "param-yx" }
+  ],
+  "clock": { "running": false, "globalTime": 0, "speed": 1 }
+}

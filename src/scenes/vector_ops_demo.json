@@ -1,0 +1,55 @@
+{
+  "objects": [
+    { "id": "vec-a-1",     "type": "vector", "color": "#e06c75", "wireframe": false, "x": 2, "y": 0, "z": 0 },
+    { "id": "vec-b-1",     "type": "vector", "color": "#5DCAA5", "wireframe": false, "x": 0, "y": 2, "z": 0 },
+    { "id": "vec-add-1",   "type": "vector", "color": "#EF9F27", "wireframe": false, "x": 2, "y": 2, "z": 0 },
+    { "id": "vec-cross-1", "type": "vector", "color": "#61afef", "wireframe": false, "x": 0, "y": 0, "z": 4 }
+  ],
+  "nodes": [
+    {
+      "id": "obj-vec-a-1", "type": "objectNode",
+      "position": { "x": 60, "y": 80 },
+      "data": { "objectId": "vec-a-1", "label": "A", "color": "#e06c75" }
+    },
+    {
+      "id": "obj-vec-b-1", "type": "objectNode",
+      "position": { "x": 60, "y": 320 },
+      "data": { "objectId": "vec-b-1", "label": "B", "color": "#5DCAA5" }
+    },
+    {
+      "id": "wave-1", "type": "waveformNode",
+      "position": { "x": 60, "y": 550 },
+      "data": { "params": { "type": "sin", "amplitude": 2, "frequency": 0.3, "phase": 0.25 } }
+    },
+    {
+      "id": "vecop-add-1", "type": "vectorOpNode",
+      "position": { "x": 390, "y": 80 },
+      "data": { "params": { "operation": "add", "showResult": false, "color": "#EF9F27" } }
+    },
+    {
+      "id": "vecop-cross-1", "type": "vectorOpNode",
+      "position": { "x": 390, "y": 320 },
+      "data": { "params": { "operation": "cross", "showResult": false, "color": "#61afef" } }
+    },
+    {
+      "id": "obj-vec-add-1", "type": "objectNode",
+      "position": { "x": 720, "y": 80 },
+      "data": { "objectId": "vec-add-1", "label": "A + B", "color": "#EF9F27" }
+    },
+    {
+      "id": "obj-vec-cross-1", "type": "objectNode",
+      "position": { "x": 720, "y": 320 },
+      "data": { "objectId": "vec-cross-1", "label": "A × B", "color": "#61afef" }
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "obj-vec-a-1",   "sourceHandle": "out",     "target": "vecop-add-1",     "targetHandle": "vec-in-a" },
+    { "id": "e2", "source": "obj-vec-b-1",   "sourceHandle": "out",     "target": "vecop-add-1",     "targetHandle": "vec-in-b" },
+    { "id": "e3", "source": "obj-vec-a-1",   "sourceHandle": "out",     "target": "vecop-cross-1",   "targetHandle": "vec-in-a" },
+    { "id": "e4", "source": "obj-vec-b-1",   "sourceHandle": "out",     "target": "vecop-cross-1",   "targetHandle": "vec-in-b" },
+    { "id": "e5", "source": "vecop-add-1",   "sourceHandle": "vec-out", "target": "obj-vec-add-1",   "targetHandle": "vec-in" },
+    { "id": "e6", "source": "vecop-cross-1", "sourceHandle": "vec-out", "target": "obj-vec-cross-1", "targetHandle": "vec-in" },
+    { "id": "e7", "source": "wave-1",        "sourceHandle": "out",     "target": "obj-vec-b-1",     "targetHandle": "vec-y" }
+  ],
+  "clock": { "running": false, "globalTime": 0, "speed": 1 }
+}

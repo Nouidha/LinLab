@@ -1,0 +1,52 @@
+{
+  "objects": [
+    { "id": "sphere-1", "type": "sphere", "color": "#EF9F27", "wireframe": false },
+    { "id": "sphere-2", "type": "sphere", "color": "#F0997B", "wireframe": false }
+  ],
+  "nodes": [
+    {
+      "id": "obj-s1", "type": "objectNode",
+      "position": { "x": 50, "y": 50 },
+      "data": { "objectId": "sphere-1", "label": "Sphere λ₁", "color": "#EF9F27" }
+    },
+    {
+      "id": "obj-s2", "type": "objectNode",
+      "position": { "x": 50, "y": 230 },
+      "data": { "objectId": "sphere-2", "label": "Sphere λ₂", "color": "#F0997B" }
+    },
+    {
+      "id": "scale-1", "type": "transformNode",
+      "position": { "x": 290, "y": 30 },
+      "data": { "transformType": "scale", "label": "Scale λ₁=2", "params": { "x": 2, "y": 0.5, "z": 1 } }
+    },
+    {
+      "id": "trans-1", "type": "transformNode",
+      "position": { "x": 520, "y": 30 },
+      "data": { "transformType": "translation", "label": "Translate", "params": { "x": -2, "y": 0, "z": 0 } }
+    },
+    {
+      "id": "scale-2", "type": "transformNode",
+      "position": { "x": 290, "y": 210 },
+      "data": { "transformType": "scale", "label": "Scale λ₂=0.5", "params": { "x": 0.5, "y": 2, "z": 1 } }
+    },
+    {
+      "id": "trans-2", "type": "transformNode",
+      "position": { "x": 520, "y": 210 },
+      "data": { "transformType": "translation", "label": "Translate", "params": { "x": 2, "y": 0, "z": 0 } }
+    },
+    {
+      "id": "wave-1", "type": "waveformNode",
+      "position": { "x": 50, "y": 400 },
+      "data": { "params": { "type": "sin", "amplitude": 1.5, "frequency": 0.25, "phase": 0 } }
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "obj-s1",  "sourceHandle": "out", "target": "scale-1", "targetHandle": "in" },
+    { "id": "e2", "source": "scale-1", "sourceHandle": "out", "target": "trans-1", "targetHandle": "in" },
+    { "id": "e3", "source": "obj-s2",  "sourceHandle": "out", "target": "scale-2", "targetHandle": "in" },
+    { "id": "e4", "source": "scale-2", "sourceHandle": "out", "target": "trans-2", "targetHandle": "in" },
+    { "id": "e5", "source": "wave-1",  "sourceHandle": "out", "target": "scale-1", "targetHandle": "param-x" },
+    { "id": "e6", "source": "wave-1",  "sourceHandle": "out", "target": "scale-2", "targetHandle": "param-y" }
+  ],
+  "clock": { "running": false, "globalTime": 0, "speed": 1 }
+}
