@@ -304,13 +304,13 @@ export default function Toolbar({ onLoadExample }) {
         <div style={{ width: 1, height: 20, background: '#2a2a4a' }} />
 
         {/* About */}
-        <button
-          onClick={() => setAboutOpen(true)}
-          title="À propos"
-          style={BTN({ color: '#555', borderColor: '#2a2a4a', padding: '3px 8px', fontWeight: 700 })}
-          onMouseEnter={e => e.currentTarget.style.color = '#9a9fc0'}
-          onMouseLeave={e => e.currentTarget.style.color = '#555'}
-        >?</button>
+        {/*<button*/}
+        {/*  onClick={() => setAboutOpen(true)}*/}
+        {/*  title="À propos"*/}
+        {/*  style={BTN({ color: '#555', borderColor: '#2a2a4a', padding: '3px 8px', fontWeight: 700 })}*/}
+        {/*  onMouseEnter={e => e.currentTarget.style.color = '#9a9fc0'}*/}
+        {/*  onMouseLeave={e => e.currentTarget.style.color = '#555'}*/}
+        {/*>?</button>*/}
       </div>
 
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
