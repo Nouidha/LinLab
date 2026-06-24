@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'LinLab <onboarding@resend.dev>',
-        to: ['nouidham@sainteanne.ca'],
+        to: ['linlb.app@gmail.com'],
         subject: `[LinLab] Crash — ${message.slice(0, 72)}`,
         html,
       }),

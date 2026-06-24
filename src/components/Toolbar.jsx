@@ -63,7 +63,7 @@ function AboutModal({ onClose }) {
         {/* Description */}
         <p style={{ fontSize: 13, lineHeight: 1.7, color: '#9a9fc0', margin: '0 0 20px' }}>
           LinLab is a pedagogical tool designed to support courses in linear algebra and vector
-          geometry. It lets students visually explore linear transformations, vector operations,
+          geometry at college Sainte-Anne. It lets students visually explore linear transformations, vector operations,
           and the effect of 4×4 matrices on 3D objects through an intuitive node-based system
           and real-time animation.
         </p>
@@ -84,9 +84,9 @@ function AboutModal({ onClose }) {
           nouidham@sainteanne.ca
         </a>
 
-        <div style={{ marginTop: 20, fontSize: 11, color: '#333', textAlign: 'right' }}>
-          Collège Sainte-Anne
-        </div>
+        {/*<div style={{ marginTop: 20, fontSize: 11, color: '#333', textAlign: 'right' }}>*/}
+        {/*  Collège Sainte-Anne*/}
+        {/*</div>*/}
       </div>
     </div>
   )
