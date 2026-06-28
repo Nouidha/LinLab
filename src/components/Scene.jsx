@@ -43,7 +43,7 @@ const GEOMETRY = {
 }
 
 function resolveGeometry(object) {
-  if (object.type === 'plane')    { const s = object.size ?? 3; return <planeGeometry args={[s, s]} /> }
+  if (object.type === 'plane')    { const s = object.size ?? 3; return <planeGeometry args={[s, s]} />}
   if (object.type === 'cube')     return <boxGeometry args={[object.size ?? 2, object.size ?? 2, object.size ?? 2]} />
   if (object.type === 'sphere')   return <sphereGeometry args={[object.radius ?? 1, 32, 32]} />
   if (object.type === 'cone')     return <coneGeometry args={[object.radius ?? 1, object.height ?? 2, 32]} />
@@ -464,6 +464,8 @@ function BasisArrows({ objectId }) {
   )
 }
 
+  const PI_OVER2_X_ROTATION = new THREE.Matrix4().makeRotationX(Math.PI / 2)
+
 function SceneObject({ object }) {
   const meshRef = useRef()
   const matRef  = useRef()
@@ -482,6 +484,10 @@ function SceneObject({ object }) {
     }
 
     mat4.current.fromArray(matrix)
+    if(object.type === 'cone' || object.type === 'cylinder') {
+      mat4.current.multiply(PI_OVER2_X_ROTATION)
+    }
+
     meshRef.current.matrix.copy(mat4.current)
     meshRef.current.matrixWorldNeedsUpdate = true
 
@@ -493,12 +499,12 @@ function SceneObject({ object }) {
   })
 
   const isFlat = object.type === 'plane'
-  const geom = resolveGeometry(object)
+  const geometry = resolveGeometry(object)
 
   return (
     <>
       <mesh ref={meshRef} matrixAutoUpdate={false}>
-        {geom}
+        {geometry}
         <meshStandardMaterial
           ref={matRef}
           color={object.color}
