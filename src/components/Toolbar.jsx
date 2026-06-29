@@ -63,7 +63,7 @@ function AboutModal({ onClose }) {
         {/* Description */}
         <p style={{ fontSize: 13, lineHeight: 1.7, color: '#9a9fc0', margin: '0 0 20px' }}>
           LinLab is a pedagogical tool designed to support courses in linear algebra and vector
-          geometry at college Sainte-Anne. It lets students visually explore linear transformations, vector operations,
+          geometry. It lets students visually explore linear transformations, vector operations,
           and the effect of 4×4 matrices on 3D objects through an intuitive node-based system
           and real-time animation.
         </p>
@@ -75,14 +75,14 @@ function AboutModal({ onClose }) {
         <div style={{ fontSize: 15, fontWeight: 600, color: '#e0e0e0', marginBottom: 4 }}>
           Mohamed Nouidha
         </div>
-        <a
-          href="mailto:nouidham@sainteanne.ca"
-          style={{ fontSize: 12, color: '#7F77DD', textDecoration: 'none' }}
-          onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-          onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
-        >
-          nouidham@sainteanne.ca
-        </a>
+        {/*<a*/}
+        {/*  href="mailto:nouidham@sainteanne.ca"*/}
+        {/*  style={{ fontSize: 12, color: '#7F77DD', textDecoration: 'none' }}*/}
+        {/*  onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}*/}
+        {/*  onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}*/}
+        {/*>*/}
+        {/*  nouidham@sainteanne.ca*/}
+        {/*</a>*/}
 
         {/*<div style={{ marginTop: 20, fontSize: 11, color: '#333', textAlign: 'right' }}>*/}
         {/*  Collège Sainte-Anne*/}
@@ -303,14 +303,14 @@ export default function Toolbar({ onLoadExample }) {
 
         <div style={{ width: 1, height: 20, background: '#2a2a4a' }} />
 
-        {/* About */}
-        {/*<button*/}
-        {/*  onClick={() => setAboutOpen(true)}*/}
-        {/*  title="À propos"*/}
-        {/*  style={BTN({ color: '#555', borderColor: '#2a2a4a', padding: '3px 8px', fontWeight: 700 })}*/}
-        {/*  onMouseEnter={e => e.currentTarget.style.color = '#9a9fc0'}*/}
-        {/*  onMouseLeave={e => e.currentTarget.style.color = '#555'}*/}
-        {/*>?</button>*/}
+         About
+        <button
+          onClick={() => setAboutOpen(true)}
+          title="À propos"
+          style={BTN({ color: '#555', borderColor: '#2a2a4a', padding: '3px 8px', fontWeight: 700 })}
+          onMouseEnter={e => e.currentTarget.style.color = '#9a9fc0'}
+          onMouseLeave={e => e.currentTarget.style.color = '#555'}
+        >?</button>
       </div>
 
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
